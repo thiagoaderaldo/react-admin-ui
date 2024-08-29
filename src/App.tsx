@@ -9,6 +9,7 @@ import {
 import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { Menu } from "./components/menu/Menu";
+import { Login } from "./pages/login/Login";
 
 function App() {
 
@@ -48,6 +49,10 @@ function App() {
           element: <Products />
         }
       ]
+    },
+    {
+      path: "/login",
+      element: <Login />
     }
   ]);
 
