@@ -1,6 +1,5 @@
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid"
 import "./dataTable.scss"
-import shadows from "@mui/material/styles/shadows";
 
 export const DataTable = () => {
 
@@ -31,7 +30,7 @@ export const DataTable = () => {
           description: 'This column has a value getter and is not sortable.',
           sortable: false,
           width: 160,
-          valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
+          valueGetter: (_value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
         },
       ];
       
