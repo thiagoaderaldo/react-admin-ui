@@ -2,6 +2,8 @@ import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import "./users.scss";
 import { userRows } from "../../data";
+import { useState } from "react";
+import { AddUser } from "../../components/addUser/AddUser";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -14,62 +16,53 @@ const columns: GridColDef[] = [
     },
   },
   {
-    field: "actions",
-    headerName: "Actions",
-    width: 100,
-    renderCell: () => {
-      return (
-        <div className="action">
-          <div className="view">View</div>
-          <div className="delete">Delete</div>
-        </div>
-      );
-    },
-  },
-  {
-    field: "status",
-    headerName: "Status",
-    width: 100,
-    type: "boolean",
-  },
-  {
     field: "firstName",
+    type: "string",
     headerName: "First name",
     width: 150,
-    editable: true,
   },
   {
     field: "lastName",
+    type: "string",
     headerName: "Last name",
     width: 150,
-    editable: true,
   },
   {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 110,
-    editable: true,
+    field: "email",
+    type: "string",
+    headerName: "Email",
+    width: 200,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (_value, row) =>
-      `${row.firstName || ""} ${row.lastName || ""}`,
+    field: "phone",
+    type: "string",
+    headerName: "Phone",
+    width: 200,
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 200,
+    type: "string",
+  },
+  {
+    field: "verified",
+    headerName: "Verified",
+    width: 150,
+    type: "boolean",
   },
 ];
 
 export const Users = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button>Add New User</button>
+        <button onClick={() => setOpen(true)}>Add New User</button>
       </div>
       <DataTable slug="users" columns={columns} rows={userRows} />
+      {open && <AddUser slug="user" columns={columns} setOpen={setOpen}/>}
     </div>
   );
 };
