@@ -1,5 +1,5 @@
 import { GridColDef } from "@mui/x-data-grid"
-import "./addUser.scss"
+import "./add.scss"
 import React from "react"
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const AddUser = (props: Props) => {
+export const Add = (props: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         
@@ -19,7 +19,7 @@ export const AddUser = (props: Props) => {
     }
 
   return (
-    <div className="addUser">
+    <div className="add">
         <div className="modal">
             <span className="close" onClick={() => props.setOpen(false)}>X</span>
             <h1>Add new {props.slug}</h1>

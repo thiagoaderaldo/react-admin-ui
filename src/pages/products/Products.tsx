@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AddUser } from "../../components/addUser/AddUser";
+import { Add } from "../../components/add/Add";
 import DataTable from "../../components/dataTable/DataTable";
 import "./products.scss"
 import { GridColDef } from "@mui/x-data-grid";
@@ -62,7 +62,7 @@ export const Products = () => {
         <button onClick={() => setOpen(true)}>Add New Products</button>
       </div>
       <DataTable slug="products" columns={columns} rows={products} />
-      {open && <AddUser slug="product" columns={columns} setOpen={setOpen}/>}
+      {open && <Add slug="product" columns={columns} setOpen={setOpen}/>}
     </div>
   );
 }
